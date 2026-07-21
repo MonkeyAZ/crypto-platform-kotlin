@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="/Main (snapshot).kt">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="/Main (snapshot).kt" />
+              <option name="originalContent" value="package org.example&#10;&#10;import org.example.trade.application.ReceiveTradeUseCase&#10;import org.example.trade.infrastructure.event.InMemoryDomainEventPublisher&#10;import org.example.trade.infrastructure.repository.InMemoryTradeRepository&#10;import org.example.trade.testsupport.TradeFixtures&#10;&#10;fun main() = runBlocking {&#10;    val repository = InMemoryTradeRepository()&#10;&#10;    val publisher = InMemoryDomainEventPublisher()&#10;&#10;    val receiveTrade = ReceiveTradeUseCase(repository, publisher)&#10;&#10;    receiveTrade(TradeFixtures.sampleTrade())&#10;}&#10;" />
+              <option name="updatedContent" value="package org.example&#10;&#10;import kotlinx.coroutines.runBlocking&#10;import org.example.trade.application.ReceiveTradeUseCase&#10;import org.example.trade.infrastructure.event.InMemoryDomainEventPublisher&#10;import org.example.trade.infrastructure.repository.InMemoryTradeRepository&#10;import org.example.trade.testsupport.TradeFixtures&#10;&#10;fun main() = runBlocking {&#10;    val repository = InMemoryTradeRepository()&#10;&#10;    val publisher = InMemoryDomainEventPublisher()&#10;&#10;    val receiveTrade = ReceiveTradeUseCase(repository, publisher)&#10;&#10;    receiveTrade(TradeFixtures.sampleTrade())&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="/build.gradle (snapshot).kts">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="/build.gradle (snapshot).kts" />
+              <option name="originalContent" value="plugins {&#10;    kotlin(&quot;jvm&quot;) version &quot;2.3.21&quot;&#10;}&#10;&#10;group = &quot;org.example&quot;&#10;version = &quot;1.0-SNAPSHOT&quot;&#10;&#10;repositories {&#10;    mavenCentral()&#10;}&#10;&#10;dependencies {&#10;    testImplementation(kotlin(&quot;test&quot;))&#10;}&#10;&#10;kotlin {&#10;    jvmToolchain(21)&#10;}&#10;&#10;tasks.test {&#10;    useJUnitPlatform()&#10;}" />
+              <option name="updatedContent" value="plugins {&#10;    kotlin(&quot;jvm&quot;) version &quot;2.3.21&quot;&#10;}&#10;&#10;group = &quot;org.example&quot;&#10;version = &quot;1.0-SNAPSHOT&quot;&#10;&#10;repositories {&#10;    mavenCentral()&#10;}&#10;&#10;dependencies {&#10;    implementation(&quot;org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2&quot;)&#10;    testImplementation(kotlin(&quot;test&quot;))&#10;}&#10;&#10;kotlin {&#10;    jvmToolchain(21)&#10;}&#10;&#10;tasks.test {&#10;    useJUnitPlatform()&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
