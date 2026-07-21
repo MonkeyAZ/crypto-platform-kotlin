@@ -2,8 +2,9 @@ package org.example
 
 import org.example.trade.application.ReceiveTradeUseCase
 import org.example.trade.infrastructure.event.InMemoryDomainEventPublisher
+import org.example.trade.application.MarketTradeHandler
 import org.example.trade.infrastructure.repository.InMemoryTradeRepository
-import org.example.trade.testsupport.TradeFixtures
+import org.example.trade.testsupport.FakeMarketDataSource
 
 class CryptoPlatform {
 
@@ -14,8 +15,12 @@ class CryptoPlatform {
 
         val publisher = InMemoryDomainEventPublisher()
 
+        val marketDataSource = FakeMarketDataSource()
+
         val receiveTrade = ReceiveTradeUseCase(repository, publisher)
 
-        receiveTrade(TradeFixtures.sampleTrade())
+        val connector = MarketTradeHandler(marketDataSource, receiveTrade)
+
+        connector.start()
     }
 }

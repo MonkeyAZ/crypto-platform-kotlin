@@ -21,8 +21,6 @@ class ReceiveTradeUseCase(
             return
         }
 
-
-
         val trade = Trade.receive(
             id = TradeId(command.id),
             symbol = Symbol(command.symbol),
