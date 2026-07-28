@@ -28,10 +28,10 @@ class PostgresTradeRepository(private val client: DatabaseClient) : TradeReposit
     override suspend fun exists(id: TradeId): Boolean {
         return client.sql(
             """
-            SELECT COUNT(*) FROM trades WHERE id = :id
+            SELECT COUNT(*) > 0 AS exists FROM trades WHERE id = :id
             """
         ).bind("id", id.value)
-            .map { row, _ -> row.get(0, Boolean::class.java)!! }
+            .map { row, _ -> row.get("exists", Boolean::class.java)!! }
             .one()
             .awaitSingle()
     }
