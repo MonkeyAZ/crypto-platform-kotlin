@@ -21,7 +21,7 @@ class BinanceTradeMapperTest {
 
         assert(marketTradeMessage.id == "12345")
         assert(marketTradeMessage.symbol == "BTCUSDT")
-        assert(marketTradeMessage.price == 50000.00.toBigDecimal())
+        assert(marketTradeMessage.price == "50000.00".toBigDecimal())
         assert(marketTradeMessage.quantity == 0.001.toBigDecimal())
         assert(marketTradeMessage.exchange == "binance")
         assert(marketTradeMessage.timestamp.toEpochMilli() == 123456789L)

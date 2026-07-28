@@ -8,4 +8,6 @@ interface TradeRepository {
     suspend fun save(trade: Trade)
 
     suspend fun exists(id: TradeId) : Boolean
+
+    suspend fun findById(id: TradeId): Trade?
 }
