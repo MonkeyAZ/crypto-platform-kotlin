@@ -1,4 +1,4 @@
-package org.example.trade.infrastructure.repository
+package org.example.trade.infrastructure.repository.memory
 
 import org.example.trade.domain.model.Trade
 import org.example.trade.domain.model.TradeId
@@ -14,6 +14,10 @@ class InMemoryTradeRepository : TradeRepository {
 
     override suspend fun exists(id: TradeId) : Boolean{
         return trades.contains(id)
+    }
+
+    override suspend fun findById(id: TradeId): Trade? {
+        return trades[id]
     }
 
     fun count(): Int {

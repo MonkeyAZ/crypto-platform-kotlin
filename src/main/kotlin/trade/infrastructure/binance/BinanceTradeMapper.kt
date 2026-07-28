@@ -5,7 +5,7 @@ import java.time.Instant
 
 class BinanceTradeMapper {
     fun toMarketTrade(event: BinanceTradeEvent): MarketTradeMessage {
-        return MarketTradeMessage(
+        return  MarketTradeMessage(
             id = event.tradeId.toString(),
             symbol = event.symbol,
             price = event.price.toBigDecimal(),
